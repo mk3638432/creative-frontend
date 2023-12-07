@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const baseURL = "https://creative-backend.onrender.com";
+const baseURL = "http://localhost:4000";
 
 const getAllUser = (setUser) => {
   axios.get(baseURL).then(({ data }) => {
