@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
-import Table from "./components/Table";
 import { addUser, getAllUser, updateUser, deleteUser } from "./utils/HandleApi";
-import Todo from "./components/Todo";
+import UserList from "./components/Todo";
+import { toast } from "react-toastify";
 
 function App() {
   const [user, setUser] = useState([]);
@@ -78,7 +78,11 @@ function App() {
         return;
       }
       // const response = await axios.post("/api/topics", data);
-    } catch (error) {}
+      addUser(data, setData, setUser);
+      toast.success(`User Added successfully!!!`);
+    } catch (error) {
+      toast.error("Somethinf Went Wrong While adding the User");
+    }
   };
   useEffect(() => {
     getAllUser(setUser);
@@ -109,9 +113,7 @@ function App() {
                 onChange={handleChange}
               >
                 {options.map((option, index) => (
-                  <option key={index} value={option}>
-                    {option}
-                  </option>
+                  <option key={index}>{option}</option>
                 ))}
               </select>
             </p>
@@ -191,7 +193,7 @@ function App() {
             </thead>
             <tbody className="mt-10">
               {user.map((user, index) => (
-                <Todo
+                <UserList
                   user={user}
                   index={index}
                   deleteUser={() => deleteUser(user?._id, setUser)}

@@ -3,7 +3,7 @@ import React from "react";
 import { FaEdit } from "react-icons/fa";
 import { MdDelete } from "react-icons/md";
 
-const Todo = ({ user, test, index, updateMode, deleteUser }) => {
+const UserList = ({ user, index, updateMode, deleteUser }) => {
   return (
     <tr
       key={user?.user_id}
@@ -43,4 +43,4 @@ const Todo = ({ user, test, index, updateMode, deleteUser }) => {
   );
 };
 
-export default Todo;
+export default UserList;

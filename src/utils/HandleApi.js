@@ -11,8 +11,6 @@ const getAllUser = (setUser) => {
 
 const addUser = (data, setData, setUser) => {
   const { name, type, email, phone, alternatPhone } = data;
-  console.log(name, type, email, phone, alternatPhone);
-  console.log(data);
 
   axios
     .post(`${baseURL}/save`, { name, type, email, phone, alternatPhone })
